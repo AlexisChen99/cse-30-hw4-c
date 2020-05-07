@@ -46,7 +46,8 @@ void *pokereate(size_t size){
  */
 int pokelete(void *mPtr){
 	int result = 0;		//0 not found, 1 found
-	mRec_t* current = head;	//current mRec_t to search 
+/*	mRec_t* current = head;	//current mRec_t to search 
+	mRec_t* previous =NULL;	// previous mRec_t to relink
 	// search for mPtr
 	while(current != NULL)
 	{	
@@ -57,19 +58,36 @@ int pokelete(void *mPtr){
 			free(current -> mPtr);
 			//set mPtr to null
 			current -> mPtr = NULL;
-			//remove mRec
+			//remove the node
+			//if not at head
+			if(previous)
+			{
+				//previous point to current's next
+				previous -> next = current -> next;
+			}
+			//if at head, no previous
+			else
+			{
+				head = current -> next;
+			}
+			//free next
+			free(current -> next);
+			//set next to null
+			current -> next = NULL;
 			//free mRec
-
+			free(current);
 			//set mRec to null
-		
+			current = NULL;
 			//set result to 1
 			result = 1;
 		}
-		
+	
+		//set previous to the previous node
+		previous = current;	
 		//go to next mRec_t to search
 		current = head -> next; 
 	}
-	//return result
+*/	//return result
 	return result; 
 }
   
@@ -82,7 +100,14 @@ void pokego() {
 
 /* Returns total number of currently-allocated blocks. */
 int totalBlocks() {
-	// TODO
+	int total = 0;	//total numbers of the block 
+	mRec_t* cur = head;	//current node
+	while(cur != NULL)
+	{
+		total++;
+		cur = cur -> next;
+	}
+	return total;
 }
 
 
