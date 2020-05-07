@@ -46,7 +46,7 @@ void *pokereate(size_t size){
  */
 int pokelete(void *mPtr){
 	int result = 0;		//0 not found, 1 found
-/*	mRec_t* current = head;	//current mRec_t to search 
+	mRec_t* current = head;	//current mRec_t to search 
 	mRec_t* previous =NULL;	// previous mRec_t to relink
 	// search for mPtr
 	while(current != NULL)
@@ -60,7 +60,7 @@ int pokelete(void *mPtr){
 			current -> mPtr = NULL;
 			//remove the node
 			//if not at head
-			if(previous)
+			if(current == head)
 			{
 				//previous point to current's next
 				previous -> next = current -> next;
@@ -85,9 +85,9 @@ int pokelete(void *mPtr){
 		//set previous to the previous node
 		previous = current;	
 		//go to next mRec_t to search
-		current = head -> next; 
+		current = current -> next; 
 	}
-*/	//return result
+	//return result
 	return result; 
 }
   
