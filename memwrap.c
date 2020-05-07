@@ -15,6 +15,8 @@ void *pokereate(size_t size){
 	new_mRec_t -> mPtr = malloc(sizeof(size));
 	//set the size to size
 	new_mRec_t -> size = size;
+	//allocate next
+	new_mRec_t -> next  = (mRec_t*) malloc(sizeof(mRec_t));	
 	//insert the node by assigning next
 	if(head)
 	{
@@ -25,7 +27,9 @@ void *pokereate(size_t size){
 	}
 	else
 	{
-		//if head is null, set head to this mRec-t
+		//if head is null, malloc head
+		head = (mRec_t*) malloc(sizeof(mRec_t));
+		//set head to this mRec-t
 		head = new_mRec_t;
 		//set next to null
 		new_mRec_t -> next = NULL;
@@ -41,7 +45,32 @@ void *pokereate(size_t size){
  * Returns 1 if successful, 0 if not.
  */
 int pokelete(void *mPtr){
-	// TODO remember to free node and mPtr
+	int result = 0;		//0 not found, 1 found
+	*mRec_t current = head;	//current mRec_t to search 
+	// search for mPtr
+	while(current != NULL)
+	{	
+		//found
+		if(current -> mPtr == mPtr)
+		{
+			//free mPtr
+			free(current -> mPtr);
+			//set mPtr to null
+			current -> mPtr = NULL;
+			//remove mRec
+			current -> 
+			//free mRec
+
+			//set mRec to null
+		
+			//set result to 1
+			result = 1;
+		
+		//go to next mRec_t to search
+		current = head -> next; 
+	}
+	//return result
+	return result; 
 }
   
 
