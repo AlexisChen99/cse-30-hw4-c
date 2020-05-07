@@ -46,7 +46,7 @@ void *pokereate(size_t size){
  */
 int pokelete(void *mPtr){
 	int result = 0;		//0 not found, 1 found
-	*mRec_t current = head;	//current mRec_t to search 
+	mRec_t* current = head;	//current mRec_t to search 
 	// search for mPtr
 	while(current != NULL)
 	{	
@@ -58,13 +58,13 @@ int pokelete(void *mPtr){
 			//set mPtr to null
 			current -> mPtr = NULL;
 			//remove mRec
-			current -> 
 			//free mRec
 
 			//set mRec to null
 		
 			//set result to 1
 			result = 1;
+		}
 		
 		//go to next mRec_t to search
 		current = head -> next; 
