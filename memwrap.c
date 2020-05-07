@@ -94,7 +94,7 @@ int pokelete(void *mPtr){
 
 /* Frees all pokereated blocks and metadata, and empties the list. */
 void pokego() {
-	mRec_t* current = head;	//current mRec_t to search 
+/*	mRec_t* current = head;	//current mRec_t to search 
 	// delete everything
 	while(current != NULL)
 	{	
@@ -113,6 +113,7 @@ void pokego() {
 		//go to next mRec_t to search
 		current = current -> next; 
 	}
+*/
 }
 
 /* Returns total number of currently-allocated blocks. */
