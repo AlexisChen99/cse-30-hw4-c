@@ -20,6 +20,8 @@ void *pokereate(size_t size){
 	{
 		//if head is not null, set next to head
 		new_mRec_t -> next = head;
+		//set head to the current one
+		head = new_mRec_t;
 	}
 	else
 	{
